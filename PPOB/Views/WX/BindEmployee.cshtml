@@ -1,0 +1,39 @@
+﻿@model PPOB.Models.ViewModel.BindEmployee
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>员工绑定</title>
+</head>
+<body>
+    <div>
+        @if (ViewBag.ErrMsg != null)
+        {
+            <h2 style="color:red">@ViewBag.ErrMsg</h2>
+        }
+        @using (Html.BeginForm())
+        {
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Mobile)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(m => m.Mobile)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Code)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(m => m.Code)
+            </div>
+            <div>
+                <input type="submit" value="绑定" />
+            </div>
+        }
+    </div>
+</body>
+</html>

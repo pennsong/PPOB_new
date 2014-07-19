@@ -1,0 +1,60 @@
+<div data-options="dxView : { name: 'Education', title: '教育经历' } " >
+    <div data-options="dxContent : { targetPlaceholder: 'content' } " >
+        <div class="view-content profile">
+   			<div data-bind="foreach: educations">
+   				<div class="profile-block profile-address-block shipping">
+	   				<h2>
+		   				第<span data-bind="text: ($index() + 1)"> </span>条
+				   		<a href="#" data-bind="click: $root.remove">删除</a>
+				   	</h2>
+		   			<div class="dx-fieldset">
+						<div class="dx-field" style="padding-top:0px; padding-bottom:0px">
+							<div class="dx-field-label">学校</div>
+					        <div class="dx-field-value">
+								<div class="pp" data-bind="dxTextBox: { value: school, placeholder: '...' }"></div>
+					        </div>
+					    </div>
+						<div class="dx-field" style="padding-top:0px; padding-bottom:0px">
+							<div class="dx-field-label">专业</div>
+					        <div class="dx-field-value">
+								<div class="pp" data-bind="dxTextBox: { value: major, placeholder: '...' }"></div>
+					        </div>
+					    </div>
+						<div class="dx-field" style="padding-top:0px; padding-bottom:0px">
+							<div class="dx-field-label">学历</div>
+					        <div class="dx-field-value">
+								 <div style="width:auto;" data-bind="dxSelectBox: {
+							        dataSource: $root.degrees,
+							        displayExpr: 'Name',
+							        valueExpr: 'Id',
+							        value: degree
+							    }"></div>
+					        </div>
+					    </div>			                
+						<div class="dx-field" style="padding-top:0px; padding-bottom:0px">
+							<div class="dx-field-label">开始</div>
+					        <div class="dx-field-value">
+								<div class="pp" data-bind="dxDateBox: { value: start, format: 'date', placeholder: '...'}"></div>
+					        </div>
+					    </div>
+						<div class="dx-field" style="padding-top:0px; padding-bottom:0px">
+							<div class="dx-field-label">结束</div>
+					        <div class="dx-field-value">
+								<div class="pp" data-bind="dxDateBox: { value: end, format: 'date', placeholder: '...'}"></div>
+					        </div>
+					    </div>
+		   			</div>
+		   		</div>
+   			</div>
+            <div id="toastOk" data-bind="dxToast:{message:'保存成功!', type:'success', displayTime: 3000 }"></div>
+            <div id="toastErr" data-bind="dxToast:{message:'保存失败!', type:'error', displayTime: 3000 }"></div>
+            <div id="toastWarn" data-bind="dxToast:{message:'信息有误, 请修正后保存!', type:'warning', displayTime: 3000 }"></div>
+   			<div class="ppButton">
+	           	<div data-bind="dxButton: { text: '添加', clickAction: add, disabled: educations().length >= 5 }"></div>
+			   	<div data-bind="dxButton: { text: '保存', clickAction: save }"></div>
+	        </div>
+	        <hr>
+	        <span>&nbsp;现有</span><span data-bind="text: educations().length"></span><span>条,最多5条</span>
+		</div>
+    </div>
+</div>
